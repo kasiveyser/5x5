@@ -1,17 +1,53 @@
 body{
-	width: 960px;
+	/*width: 960px;*/
 	margin: 0 auto;
 	background: #fffffa;
 	font-family: "Verdana", sans;
 }
 
+h1{
+	text-align: center;
+}
+
 .main{
-	width: 300px;
-	height: 300px;
+	width: 400px;
+	height: 400px;
 	margin: 0 auto;
 	background: #ffa;
+	font-size: 0;
 }
 
 .start {
 	text-align: center;
 }
+
+.cell{
+	display: inline-block;
+	border: 1px solid black;
+	width: 19.5%;
+	height: 12.8%;
+	padding-top: 6.7%;
+	font-size: 20px;
+	text-align: center;
+}
+
+/*.cell {
+	display: inline-block;
+	border: 1px solid black;
+	width: 58px;
+	height: 40px;
+	padding-top: 18px;
+	font-size: 20px;
+	text-align: center;
+}*/
+
+form[name = MyForm],
+input[name = stopwatch] {
+	text-align: center;
+}
+
+input[name = stopwatch] {
+	border: none;
+}
+
+
