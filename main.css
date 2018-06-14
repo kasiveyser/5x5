@@ -14,9 +14,10 @@ h1{
 
 .main{
 	width: 400px;
-	height: 400px;
+	/*height: 400px;*/
 	margin: 0 auto;
 	font-size: 0;
+	border: 1px solid black;
 }
 
 .start {
@@ -26,12 +27,14 @@ h1{
 .cell{
 	display: inline-block;
 	border: 1px solid black;
-	width: 19.5%;
-	height: 12.8%;
-	padding-top: 6.7%;
+	width: 20%;
+	/*height: 12.8%;*/
+	/*padding-top: 6.7%;*/
 	font-size: 20px;
 	text-align: center;
-	background: #ffd;
+	background: #ffe;
+	padding: 7% 0;
+	box-sizing: border-box;
 }
 
 /*.cell {
@@ -69,7 +72,7 @@ input[name = stopwatch] {
 .resultBarCell {
 	width: auto;
 	min-height: 20px;
-	background: #ffd;
+	background: #ffe;
 	margin: 5px;
 	padding: 5px;
 }
