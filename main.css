@@ -3,17 +3,19 @@ body{
 	margin: 0 auto;
 	background: #fffffa;
 	font-family: "Verdana", sans;
+	position: relative;
 }
 
 h1{
 	text-align: center;
+	margin: 0;
+	padding: 0.67em 0;
 }
 
 .main{
 	width: 400px;
 	height: 400px;
 	margin: 0 auto;
-	background: #ffa;
 	font-size: 0;
 }
 
@@ -29,6 +31,7 @@ h1{
 	padding-top: 6.7%;
 	font-size: 20px;
 	text-align: center;
+	background: #ffd;
 }
 
 /*.cell {
@@ -48,6 +51,8 @@ input[name = stopwatch] {
 
 input[name = stopwatch] {
 	border: none;
+	font-family: "Verdana", sans;
+	font-size: 1em;
 }
 
 
