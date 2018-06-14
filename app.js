@@ -90,7 +90,7 @@ document.addEventListener('keydown', function(event){
 });
 
 
-// Секундомер
+// *Секундомер
 
 //объявляем переменные
 var base = 60; 
@@ -147,5 +147,14 @@ function StartStop() {
 	} else { 
 		clearTimeout(clocktimer);
 		init=0;
+		createResult();
 	} 
 } 
+
+
+function createResult(lastTime){
+	let div = document.createElement('div');
+	div.className = "resultBarCell";
+	div.innerHTML = readout;
+	document.getElementById('resultBar').appendChild(div);	
+}
