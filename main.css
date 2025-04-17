@@ -1,9 +1,12 @@
-body{
-	/*width: 960px;*/
-	margin: 0 auto;
-	background: #fffffa;
-	font-family: "Verdana", sans;
-	position: relative;
+body {
+    margin: 0;
+    display: flex;           /* используем Flexbox для выравнивания */
+    justify-content: center; /* центровка по горизонтали */
+    align-items: center;     /* центровка по вертикали */
+    height: 100vh;           /* занимаем весь экран по высоте */
+
+    background: #fffffa;
+    font-family: "Verdana", sans;
 }
 
 h1{
@@ -12,40 +15,26 @@ h1{
 	padding: 0.67em 0;
 }
 
-.main{
-	width: 400px;
-	/*height: 400px;*/
-	margin: 0 auto;
-	font-size: 0;
-	border: 1px solid black;
+.main {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 колонок одинаковой ширины */
+    width: min(80vmin, 80vh);              /* ширина таблицы равна ширине viewport */
+    height: min(80vmin, 80vw);             /* высота таблицы равна её ширине */
+    border: 1px solid #000;                /* рамка вокруг таблицы */
 }
 
 .start {
 	text-align: center;
 }
 
-.cell{
-	display: inline-block;
-	border: 1px solid black;
-	width: 20%;
-	/*height: 12.8%;*/
-	/*padding-top: 6.7%;*/
-	font-size: 20px;
-	text-align: center;
-	background: #ffe;
-	padding: 7% 0;
-	box-sizing: border-box;
+.cell {
+    background-color: #ffe;                 /* цвет фона ячеек */
+    border: 1px solid #000;                 /* обводка вокруг ячеек */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
 }
-
-/*.cell {
-	display: inline-block;
-	border: 1px solid black;
-	width: 58px;
-	height: 40px;
-	padding-top: 18px;
-	font-size: 20px;
-	text-align: center;
-}*/
 
 form[name = MyForm],
 input[name = stopwatch] {
@@ -59,6 +48,7 @@ input[name = stopwatch] {
 }
 
 .resultBar {
+	display: none;
 	position: absolute;
 	right: 0;
 	top: 0;
