@@ -1,6 +1,7 @@
 body {
     margin: 0;
     display: flex;           /* используем Flexbox для выравнивания */
+	flex-direction: column;
     justify-content: center; /* центровка по горизонтали */
     align-items: center;     /* центровка по вертикали */
     height: 100vh;           /* занимаем весь экран по высоте */
