@@ -1,69 +1,119 @@
 body {
     margin: 0;
-    display: flex;           /* используем Flexbox для выравнивания */
-	flex-direction: column;
-    justify-content: center; /* центровка по горизонтали */
-    align-items: center;     /* центровка по вертикали */
-    height: 100vh;           /* занимаем весь экран по высоте */
-
-    background: #fffffa;
-    font-family: "Verdana", sans;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #FFFFFA;
+    font-family: Verdana, sans-serif;
+    padding: 0 0 20px 0;
+    box-sizing: border-box;
 }
 
-h1{
-	text-align: center;
-	margin: 0;
-	padding: 0.67em 0;
+.nav-bar {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: max(50px, calc(10vh));
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #EFEFEF;
+    padding: 0;
+    z-index: 1000;
+}
+
+.right-button {
+    width: 10vh;
+    height: max(50px, calc(10vh));
+    background-color: #7BBEF2; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+    cursor: pointer; 
+    display: inline-block; 
+    vertical-align: middle; 
+}
+
+.right-button:hover {
+    background-color: #6BAEE1; 
+}
+
+
+h1 {
+    margin: 0 auto;
+    font-weight: bold;
+}
+
+button {
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    color: white;
+    background-color: #4CAF50;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    margin-top: 1rem; 
+}
+
+button:hover {
+    background-color: #45A049;
 }
 
 .main {
     display: grid;
-    grid-template-columns: repeat(5, 1fr); /* 5 колонок одинаковой ширины */
-    width: min(80vmin, 80vh);              /* ширина таблицы равна ширине viewport */
-    height: min(80vmin, 80vw);             /* высота таблицы равна её ширине */
-    border: 1px solid #000;                /* рамка вокруг таблицы */
-}
-
-.start {
-	text-align: center;
+    grid-template-columns: repeat(5, 1fr); /* 5 колонок */
+    grid-template-rows: repeat(5, 1fr); /* 5 строк */
+    width: min(80vmin, 80vh); /* Адаптивная ширина */
+    height: min(80vmin, 80vh); /* Адаптивная высота */
+    border: 1px solid black;
+    margin-top: 1rem;
 }
 
 .cell {
-    background-color: #ffe;                 /* цвет фона ячеек */
-    border: 1px solid #000;                 /* обводка вокруг ячеек */
+    background-color: #FFE;
+    border: 1px solid black;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 20px;
 }
 
-form[name = MyForm],
-input[name = stopwatch] {
-	text-align: center;
-}
-
-input[name = stopwatch] {
-	border: none;
-	font-family: "Verdana", sans;
-	font-size: 1em;
+form input[type="text"] {
+    border: none;
+    font-family: inherit;
+    font-size: 1em;
+    text-align: center;
 }
 
 .resultBar {
-	display: none;
-	position: absolute;
-	right: 0;
-	top: 0;
-	width: 300px;
-	height: 100vh;
-	background: #f2f2f2;
-	overflow: auto;
-	box-shadow: 0 0 4px 0px;
+    display: none;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 300px;
+    height: 100vh;
+    background: #F2F2F2;
+    overflow-y: scroll;
+    z-index: 900;
+    padding-top: 10vh;
+    transition: transform 0.3s ease-in-out;
+}
+
+.resultBar.active {
+    transform: translateX(-300px);
 }
 
 .resultBarCell {
-	width: auto;
-	min-height: 20px;
-	background: #ffe;
-	margin: 5px;
-	padding: 5px;
+    width: auto;
+    min-height: 20px;
+    background: #FFE;
+    margin: 5px;
+    padding: 5px;
 }
+
+.start {
+    padding: 0 20px;
+}
+
