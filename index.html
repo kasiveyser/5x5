@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Document</title>
-	<link rel="stylesheet" href="main.css">
-	<script src="app.js"></script>
+    <meta charset="UTF-8">
+    <title>5x5</title>
+    <link rel="stylesheet" href="main.css">
+    <script defer src="app.js"></script>
 </head>
 <body>
-	<h1>Hello 5x5</h1>
-	
-	<div class="main" id="main">
-		<div></div>
-	</div>
-	<p class="start">
-		Press "Space" to start/stop stopwatch and restart table.
-	</p>
+    <header class="nav-bar">
+        <h1>Hello 5x5</h1>
+        <div class="right-button"></div>
+    </header>
 
-	<form name=MyForm>
-		<input name=stopwatch size=10 value="00:00:00.00">
-	</form>
+    <div class="main" id="main"></div>
 
-	<div class="resultBar" id="resultBar">
-		<!-- <div class="resultBarCell"></div> -->
-	</div>
+    <p class="start">Press "Space" or button to start/stop timer and reset table.</p>
+
+    <form name="MyForm">
+        <input type="text" name="stopwatch" readonly value="00:00:00.00" />
+    </form>
+
+    <button class="startstop">start/stop</button>
+
+    <div class="resultBar" id="resultBar"></div>
 </body>
 </html>
