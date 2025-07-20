@@ -10,13 +10,15 @@ body {
 }
 
 #root {
-    width: 100vmin;
+    width: 90vmin;
     max-width: 1000px;
     height: 65vmin;
     max-height: 650px;
     margin: 0 auto;
     position: relative;
     background: #f0f0f0;
+    display: flex;
+    flex-direction: column;
 }
 
 .container {
@@ -30,12 +32,13 @@ body {
 .field {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-gap: 2vmin;
+    grid-gap: 1px;
     width: 60vmin;
-    max-width: 600px;
     height: 60vmin;
+    max-width: 600px;
     max-height: 600px;
     margin: 0 auto;
+    box-sizing: border-box;
 }
 
 .cell {
@@ -44,6 +47,10 @@ body {
     background: #ccc;
     border: 1px solid #999;
     box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2vmin;
 }
 
 .scores {
@@ -67,6 +74,18 @@ body {
     margin: 1vmin 0;
 }
 
+.navigation {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 2vmin;
+    text-align: center;
+    padding: 5px;
+    background: rgba(0, 0, 0, 0.5);
+}
+
 @media (max-width: 600px) {
     #root {
         width: 90vmin;
@@ -76,7 +95,10 @@ body {
     .field {
         width: 80vmin;
         height: 80vmin;
-        grid-gap: 1vmin;
+    }
+
+    .cell {
+        font-size: 2vmin;
     }
 
     .scores {
@@ -95,6 +117,11 @@ body {
     .sidebar-item {
         margin: 0.5vmin 0;
     }
+
+    .navigation {
+        font-size: 2.5vmin;
+        bottom: 5px;
+    }
 }
 
 @media (max-width: 400px) {
@@ -111,6 +138,10 @@ body {
     .sidebar {
         width: 30vmin;
         max-width: 120px;
+        font-size: 3vmin;
+    }
+
+    .navigation {
         font-size: 3vmin;
     }
 }
