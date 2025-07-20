@@ -2,146 +2,221 @@ body {
     margin: 0;
     padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    background: #333;
-    font-family: Arial, sans-serif;
+    height: 100vh;
+    min-height: 95vmin;
+    background: #FFFFFA;
+    font-family: Verdana, sans-serif;
+    box-sizing: border-box;
 }
 
-#root {
-    width: 90vmin;
-    max-width: 1000px;
-    height: 65vmin;
-    max-height: 650px;
-    margin: 0 auto;
-    position: relative;
-    background: #f0f0f0;
-    display: flex;
-    flex-direction: column;
-}
-
-.container {
+.nav-bar {
+    position: sticky;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 100%;
+    height: max(50px, 8vh); /* Уменьшил до 8vh для адаптивности */
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
+    align-items: center;
+    background-color: #EFEFEF;
+    padding: 0 1vw;
+    z-index: 1000;
 }
 
-.field {
+.right-button {
+    width: 8vh; /* Уменьшил для адаптивности */
+    height: max(50px, 8vh);
+    background-color: #7BBEF2;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.right-button:hover {
+    background-color: #6BAEE1;
+}
+
+h1 {
+    margin: 0 auto;
+    font-weight: bold;
+    font-size: 4vmin; /* Адаптивный размер шрифта */
+}
+
+button {
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    color: white;
+    background-color: #4CAF50;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    font-size: 1.5vmin; /* Адаптивный размер шрифта */
+    margin-top: 1.5vmin; /* Адаптивный отступ */
+}
+
+button:hover {
+    background-color: #45A049;
+}
+
+.main {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    grid-gap: 1px;
-    width: 60vmin;
-    height: 60vmin;
-    max-width: 600px;
-    max-height: 600px;
-    margin: 0 auto;
-    box-sizing: border-box;
+    grid-template-rows: repeat(5, 1fr);
+    width: min(80vmin, 80vh);
+    height: min(80vmin, 80vh);
+    border: 1px solid black;
+    margin-top: 2vmin; /* Адаптивный отступ */
 }
 
 .cell {
-    width: 100%;
-    height: 100%;
-    background: #ccc;
-    border: 1px solid #999;
-    box-sizing: border-box;
+    background-color: #FFE;
+    border: 1px solid black;
     display: flex;
-    align-items: center;
     justify-content: center;
-    font-size: 2vmin;
+    align-items: center;
+    font-size: 2.5vmin; /* Увеличил для читаемости на маленьких экранах */
 }
 
-.scores {
-    font-size: 2.5vmin;
+form input[type="text"] {
+    border: none;
+    font-family: inherit;
+    font-size: 1.5vmin; /* Адаптивный размер шрифта */
     text-align: center;
-    margin: 2vmin 0;
+    padding: 0.5vmin; /* Адаптивный отступ */
 }
 
-.sidebar {
-    width: 20vmin;
-    max-width: 200px;
-    background: #ddd;
-    padding: 1vmin;
-    position: absolute;
-    right: 1vmin;
-    top: 1vmin;
-    font-size: 2vmin;
+.resultBar {
+    display: none;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 50vmin; /* Уменьшил для адаптивности */
+    height: 100vh;
+    background: #F2F2F2;
+    overflow-y: scroll;
+    z-index: 900;
+    padding-top: 10vh;
+    transition: transform 0.3s ease-in-out;
 }
 
-.sidebar-item {
-    margin: 1vmin 0;
+.resultBar.active {
+    transform: translateX(-300px);
 }
 
-.navigation {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: white;
-    font-size: 2vmin;
-    text-align: center;
-    padding: 5px;
-    background: rgba(0, 0, 0, 0.5);
+.resultBarCell {
+    width: auto;
+    min-height: 15vmin; /* Адаптивная высота */
+    background: #FFE;
+    margin: 1vmin; /* Адаптивный отступ */
+    padding: 1vmin; /* Адаптивный отступ */
+}
+
+.start {
+    padding: 0 2vw; /* Адаптивный отступ */
 }
 
 @media (max-width: 600px) {
-    #root {
-        width: 90vmin;
-        height: 60vmin;
+    .nav-bar {
+        height: max(40px, 6vh);
+        padding: 0 0.5vw;
     }
 
-    .field {
-        width: 80vmin;
-        height: 80vmin;
+    .right-button {
+        width: 6vh;
+        height: max(40px, 6vh);
+    }
+
+    h1 {
+        font-size: 3.5vmin;
+    }
+
+    button {
+        font-size: 2vmin;
+        margin-top: 1vmin;
+        padding: 0.4rem 0.8rem;
+    }
+
+    .main {
+        width: min(90vmin, 90vh);
+        height: min(90vmin, 90vh);
+        margin-top: 1.5vmin;
     }
 
     .cell {
         font-size: 2vmin;
     }
 
-    .scores {
-        font-size: 3vmin;
+    form input[type="text"] {
+        font-size: 2vmin;
+        padding: 0.4vmin;
     }
 
-    .sidebar {
-        width: 25vmin;
-        max-width: 150px;
-        padding: 0.5vmin;
-        right: 0.5vmin;
-        top: 0.5vmin;
-        font-size: 2.5vmin;
+    .resultBar {
+        width: 40vmin;
+        padding-top: 8vh;
     }
 
-    .sidebar-item {
-        margin: 0.5vmin 0;
+    .resultBarCell {
+        min-height: 12vmin;
+        margin: 0.8vmin;
+        padding: 0.8vmin;
     }
 
-    .navigation {
-        font-size: 2.5vmin;
-        bottom: 5px;
+    .start {
+        padding: 0 1.5vw;
     }
 }
 
 @media (max-width: 400px) {
-    #root {
-        width: 95vmin;
-        height: 55vmin;
+    .nav-bar {
+        height: max(30px, 5vh);
     }
 
-    .field {
-        width: 85vmin;
-        height: 85vmin;
+    .right-button {
+        width: 5vh;
+        height: max(30px, 5vh);
     }
 
-    .sidebar {
-        width: 30vmin;
-        max-width: 120px;
+    h1 {
         font-size: 3vmin;
     }
 
-    .navigation {
-        font-size: 3vmin;
+    button {
+        font-size: 1.8vmin;
+        margin-top: 0.8vmin;
+        padding: 0.3rem 0.6rem;
+    }
+
+    .main {
+        width: min(95vmin, 95vh);
+        height: min(95vmin, 95vh);
+    }
+
+    .cell {
+        font-size: 1.8vmin;
+    }
+
+    form input[type="text"] {
+        font-size: 1.8vmin;
+        padding: 0.3vmin;
+    }
+
+    .resultBar {
+        width: 35vmin;
+        padding-top: 6vh;
+    }
+
+    .resultBarCell {
+        min-height: 10vmin;
+        margin: 0.5vmin;
+        padding: 0.5vmin;
+    }
+
+    .start {
+        padding: 0 1vw;
     }
 }
