@@ -9,6 +9,7 @@ body {
     min-height: 95vmin;
     background: #FFFFFA;
     font-family: Verdana, sans-serif;
+    font-size: 1em;
     box-sizing: border-box;
     overflow-x: hidden;
 }
@@ -70,8 +71,10 @@ button:hover {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(5, 1fr);
-    width: min(80vmin, 80vh);
-    height: min(80vmin, 80vh);
+    width: min(67vmin, 67vh); /* Базовый размер, ограниченный меньшей стороной экрана */
+    /* height: min(67vmin, 67vh); */ /* Можно расскомментировать для тестирования, но с aspect-ratio не обязательно */
+    aspect-ratio: 1 / 1; /* Гарантирует квадратную форму */
+    max-width: 100%; /* Ограничивает ширину родителем */
     border: 1px solid black;
     margin-top: 2vmin;
     box-sizing: border-box;
@@ -82,17 +85,17 @@ button:hover {
     height: 100%;
     background-color: #FFE;
     border: 1px solid black;
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    justify-items: center;
     align-items: center;
     font-size: 2.5vmin;
     max-width: 100%;
     max-height: 100%;
     overflow: hidden;
     box-sizing: border-box;
-    line-height: 100%; /* Синхронизация высоты текста с ячейкой */
-    text-align: center; /* Центрирование текста */
-    white-space: nowrap; /* Запрещаем перенос строк */
+    white-space: nowrap;
 }
 
 form input[type="text"] {
@@ -142,7 +145,7 @@ form input[type="text"] {
     font-size: 2.5vmin;
     text-align: center;
     margin: 1vmin auto;
-    max-width: min(80vmin, 80vh);
+    max-width: min(75vmin, 75vh);
 }
 
 @media (max-width: 600px) {
@@ -151,12 +154,12 @@ form input[type="text"] {
     }
 
     .nav-bar {
-        height: max(50px, 8vh);
+        height: max(60px, 10vh);
     }
 
     .right-button {
-        width: max(50px, 8vh);
-        height: max(50px, 8vh);
+        width: max(60px, 10vh);
+        height: max(60px, 10vh);
     }
 
     h1 {
@@ -164,15 +167,15 @@ form input[type="text"] {
     }
 
     button {
-        font-size: 4vmin;
+        font-size: 3vmin;
         margin-top: 1.6vmin;
         margin-bottom: 1.6rem;
         padding: 0.64rem 1.28rem;
     }
 
     .main {
-        width: min(90vmin, 90vh);
-        height: min(90vmin, 90vh);
+        width: min(75vmin, 75vh);
+        height: min(75vmin, 75vh);
         margin-top: 2.4vmin;
     }
 
@@ -190,13 +193,13 @@ form input[type="text"] {
 
     .resultBar {
         width: 60vmin;
-        padding-top: max(50px, 8vh);
+        padding-top: max(60px, 10vh);
     }
 
     .resultBarCell {
         min-height: 3.2vmin;
-        margin: 0.8px;
-        padding: 1.28vmin;
+        margin: 1px;
+        padding: 1.2vmin;
     }
 
     .start {
@@ -205,7 +208,7 @@ form input[type="text"] {
 
     .scores {
         font-size: 4vmin;
-        max-width: min(90vmin, 90vh);
+        max-width: min(75vmin, 75vh);
     }
 }
 
@@ -231,8 +234,8 @@ form input[type="text"] {
     }
 
     .main {
-        width: min(95vmin, 95vh);
-        height: min(95vmin, 95vh);
+        width: min(75vmin, 75vh);
+        height: min(75vmin, 75vh);
     }
 
     .cell {
@@ -264,6 +267,6 @@ form input[type="text"] {
 
     .scores {
         font-size: 2.88vmin;
-        max-width: min(95vmin, 95vh);
+        max-width: min(75vmin, 75vh);
     }
 }
