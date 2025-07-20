@@ -1,15 +1,16 @@
 body {
     margin: 0;
-    padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+    padding: env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left) 0;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     height: 100vh;
     min-height: 95vmin;
     background: #FFFFFA;
     font-family: Verdana, sans-serif;
     box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 .nav-bar {
@@ -17,18 +18,20 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: max(50px, 8vh); /* Уменьшил до 8vh для адаптивности */
+    height: max(60px, 10vh);
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #EFEFEF;
-    padding: 0 1vw;
+    padding: 0;
     z-index: 1000;
+    box-sizing: border-box;
+    border-bottom: 1px solid #ddd;
 }
 
 .right-button {
-    width: 8vh; /* Уменьшил для адаптивности */
-    height: max(50px, 8vh);
+    width: max(60px, 10vh);
+    height: max(60px, 10vh);
     background-color: #7BBEF2;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     cursor: pointer;
@@ -43,7 +46,7 @@ body {
 h1 {
     margin: 0 auto;
     font-weight: bold;
-    font-size: 4vmin; /* Адаптивный размер шрифта */
+    font-size: 4vmin;
 }
 
 button {
@@ -54,8 +57,9 @@ button {
     border-radius: 5px;
     border: none;
     outline: none;
-    font-size: 1.5vmin; /* Адаптивный размер шрифта */
-    margin-top: 1.5vmin; /* Адаптивный отступ */
+    font-size: 2.5vmin;
+    margin-top: 1.5vmin;
+    margin-bottom: 1rem;
 }
 
 button:hover {
@@ -69,24 +73,37 @@ button:hover {
     width: min(80vmin, 80vh);
     height: min(80vmin, 80vh);
     border: 1px solid black;
-    margin-top: 2vmin; /* Адаптивный отступ */
+    margin-top: 2vmin;
+    box-sizing: border-box;
 }
 
 .cell {
+    width: 100%;
+    height: 100%;
     background-color: #FFE;
     border: 1px solid black;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 2.5vmin; /* Увеличил для читаемости на маленьких экранах */
+    font-size: 2.5vmin;
+    max-width: 100%;
+    max-height: 100%;
+    overflow: hidden;
+    box-sizing: border-box;
+    line-height: 100%; /* Синхронизация высоты текста с ячейкой */
+    text-align: center; /* Центрирование текста */
+    white-space: nowrap; /* Запрещаем перенос строк */
 }
 
 form input[type="text"] {
     border: none;
     font-family: inherit;
-    font-size: 1.5vmin; /* Адаптивный размер шрифта */
+    font-size: 2.5vmin;
     text-align: center;
-    padding: 0.5vmin; /* Адаптивный отступ */
+    padding: 0.5vmin;
+    width: 10vw;
+    outline: none;
+    box-shadow: none;
 }
 
 .resultBar {
@@ -94,13 +111,14 @@ form input[type="text"] {
     position: fixed;
     right: 0;
     top: 0;
-    width: 50vmin; /* Уменьшил для адаптивности */
+    width: 60vmin;
     height: 100vh;
-    background: #F2F2F2;
-    overflow-y: scroll;
+    background: #ddd;
+    overflow-y: auto;
     z-index: 900;
-    padding-top: 10vh;
+    padding-top: max(60px, 10vh);
     transition: transform 0.3s ease-in-out;
+    box-sizing: border-box;
 }
 
 .resultBar.active {
@@ -109,86 +127,107 @@ form input[type="text"] {
 
 .resultBarCell {
     width: auto;
-    min-height: 15vmin; /* Адаптивная высота */
+    min-height: 2.5vmin;
     background: #FFE;
-    margin: 1vmin; /* Адаптивный отступ */
-    padding: 1vmin; /* Адаптивный отступ */
+    margin: 1px;
+    padding: 1vmin;
+    box-sizing: border-box;
 }
 
 .start {
-    padding: 0 2vw; /* Адаптивный отступ */
+    padding: 0 2vw;
+}
+
+.scores {
+    font-size: 2.5vmin;
+    text-align: center;
+    margin: 1vmin auto;
+    max-width: min(80vmin, 80vh);
 }
 
 @media (max-width: 600px) {
+    body {
+        padding: env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left) 0;
+    }
+
     .nav-bar {
-        height: max(40px, 6vh);
-        padding: 0 0.5vw;
+        height: max(50px, 8vh);
     }
 
     .right-button {
-        width: 6vh;
-        height: max(40px, 6vh);
+        width: max(50px, 8vh);
+        height: max(50px, 8vh);
     }
 
     h1 {
-        font-size: 3.5vmin;
+        font-size: 5.6vmin;
     }
 
     button {
-        font-size: 2vmin;
-        margin-top: 1vmin;
-        padding: 0.4rem 0.8rem;
+        font-size: 4vmin;
+        margin-top: 1.6vmin;
+        margin-bottom: 1.6rem;
+        padding: 0.64rem 1.28rem;
     }
 
     .main {
         width: min(90vmin, 90vh);
         height: min(90vmin, 90vh);
-        margin-top: 1.5vmin;
+        margin-top: 2.4vmin;
     }
 
     .cell {
-        font-size: 2vmin;
+        font-size: 4vmin;
     }
 
     form input[type="text"] {
-        font-size: 2vmin;
-        padding: 0.4vmin;
+        font-size: 3vmin;
+        padding: 0.64vmin;
+        width: auto;
+        outline: none;
+        box-shadow: none;
     }
 
     .resultBar {
-        width: 40vmin;
-        padding-top: 8vh;
+        width: 60vmin;
+        padding-top: max(50px, 8vh);
     }
 
     .resultBarCell {
-        min-height: 12vmin;
-        margin: 0.8vmin;
-        padding: 0.8vmin;
+        min-height: 3.2vmin;
+        margin: 0.8px;
+        padding: 1.28vmin;
     }
 
     .start {
-        padding: 0 1.5vw;
+        padding: 0 2.4vw;
+    }
+
+    .scores {
+        font-size: 4vmin;
+        max-width: min(90vmin, 90vh);
     }
 }
 
 @media (max-width: 400px) {
     .nav-bar {
-        height: max(30px, 5vh);
+        height: max(40px, 6vh);
     }
 
     .right-button {
-        width: 5vh;
-        height: max(30px, 5vh);
+        width: max(40px, 6vh);
+        height: max(40px, 6vh);
     }
 
     h1 {
-        font-size: 3vmin;
+        font-size: 4.8vmin;
     }
 
     button {
-        font-size: 1.8vmin;
-        margin-top: 0.8vmin;
-        padding: 0.3rem 0.6rem;
+        font-size: 2.88vmin;
+        margin-top: 1.28vmin;
+        margin-bottom: 1.28rem;
+        padding: 0.48rem 0.96rem;
     }
 
     .main {
@@ -197,26 +236,34 @@ form input[type="text"] {
     }
 
     .cell {
-        font-size: 1.8vmin;
+        font-size: 2.88vmin;
     }
 
     form input[type="text"] {
-        font-size: 1.8vmin;
-        padding: 0.3vmin;
+        font-size: 1.92vmin;
+        padding: 0.48vmin;
+        width: 15vw;
+        outline: none;
+        box-shadow: none;
     }
 
     .resultBar {
-        width: 35vmin;
-        padding-top: 6vh;
+        width: 60vmin;
+        padding-top: max(40px, 6vh);
     }
 
     .resultBarCell {
-        min-height: 10vmin;
-        margin: 0.5vmin;
-        padding: 0.5vmin;
+        min-height: 2.88vmin;
+        margin: 0.8px;
+        padding: 0.8vmin;
     }
 
     .start {
-        padding: 0 1vw;
+        padding: 0 1.6vw;
+    }
+
+    .scores {
+        font-size: 2.88vmin;
+        max-width: min(95vmin, 95vh);
     }
 }
