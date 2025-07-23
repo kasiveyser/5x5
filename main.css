@@ -60,7 +60,7 @@ button {
     border-radius: 5px;
     border: none;
     outline: none;
-    font-size: 1.3rem; 
+    font-size: 1.1rem; 
     margin-top: 1.5vmin;
     margin-bottom: 1rem;
     box-sizing: border-box;
@@ -105,7 +105,7 @@ button:hover {
 form input[type="text"] {
     border: none;
     font-family: inherit;
-    font-size: 2.5vmin;
+    font-size: 1.1rem;
     text-align: center;
     padding: 0.5vmin;
     width: 10vw;
@@ -135,16 +135,16 @@ form input[type="text"] {
 
 .resultBarCell {
     width: auto;
-    min-height: 2.5vmin; /* Оставим как есть для текущего размера */
+    min-height: 2.5vmin; 
     background: #FFE;
     margin: 1px;
     padding: 1vmin;
     box-sizing: border-box;
-    font-size: 1.3rem; /* 2.4 Примерно эквивалент 4vmin при 16px */
+    font-size: 1.3rem; 
 }
 
 .start {
-    padding: 0 2vw;
+    padding: 0 5vw;
 }
 
 .scores {
